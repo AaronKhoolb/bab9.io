@@ -22,19 +22,34 @@
         function removeUnwantedElement() {
             // 等待页面加载完成
             window.addEventListener('load', function () {
-                // 延迟10秒后执行
-                setTimeout(function () {
-                    // 在页面内选择要删除的元素
-                    var unwantedElement = document.querySelector('.chakra-button');
+                // 创建 MutationObserver 实例
+                var observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        // 检查每个变化的节点
+                        var addedNodes = mutation.addedNodes;
+                        for (var i = 0; i < addedNodes.length; i++) {
+                            var node = addedNodes[i];
+                            // 在新节点中选择要删除的元素
+                            var unwantedElement = node.querySelector('.chakra-button');
+                            if (unwantedElement) {
+                                // 从DOM中移除元素
+                                unwantedElement.remove();
+                                // 停止观察
+                                observer.disconnect();
+                                return;
+                            }
+                        }
+                    });
+                });
 
-                    // 检查元素是否存在
-                    if (unwantedElement) {
-                        // 从DOM中移除元素
-                        unwantedElement.remove();
-                    }
-                }, 10000); // 10秒
+                // 配置观察选项
+                var config = { childList: true, subtree: true };
+
+                // 开始观察文档
+                observer.observe(document.body, config);
             });
         }
+
         // 等待页面加载完成后执行
         window.addEventListener('load', removeUnwantedElement);
     </script>
