@@ -22,14 +22,17 @@
         function removeUnwantedElement() {
             // 等待页面加载完成
             window.addEventListener('load', function () {
-                // 在页面内选择要删除的元素
-                var unwantedElement = document.querySelector('.chakra-button');
+                // 延迟10秒后执行
+                setTimeout(function () {
+                    // 在页面内选择要删除的元素
+                    var unwantedElement = document.querySelector('.chakra-button');
 
-                // 检查元素是否存在
-                if (unwantedElement) {
-                    // 从DOM中移除元素
-                    unwantedElement.remove();
-                }
+                    // 检查元素是否存在
+                    if (unwantedElement) {
+                        // 从DOM中移除元素
+                        unwantedElement.remove();
+                    }
+                }, 10000); // 10秒
             });
         }
         // 等待页面加载完成后执行
