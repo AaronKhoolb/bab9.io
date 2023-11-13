@@ -17,22 +17,12 @@
             height: 100%;
             border: none;
         }
-    </style>
-    <script>
-        function hideUnwantedElements() {
-            // 在这里选择要隐藏的元素
-            var unwantedElement = document.querySelector('.chakra-button');
 
-            // 检查元素是否存在
-            if (unwantedElement) {
-                // 隐藏元素
-                unwantedElement.style.display = 'none';
-            }
+        /* 通过覆盖样式来隐藏元素 */
+        .chakra-button {
+            display: none !important;
         }
-
-        // 等待页面加载完成后执行
-        window.addEventListener('load', hideUnwantedElements);
-    </script>
+    </style>
 </head>
 <body>
 
