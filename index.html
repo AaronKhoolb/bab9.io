@@ -18,27 +18,6 @@
             border: none;
         }
     </style>
-    <script>
-        function modifyText() {
-            // 等待页面加载完成
-            window.addEventListener('load', function () {
-                // 等待1秒钟以确保元素加载完成
-                setTimeout(function () {
-                    // 在页面内选择要修改的元素
-                    var targetElement = document.querySelector('.chakra-button');
-
-                    // 检查元素是否存在
-                    if (targetElement) {
-                        // 修改元素的文本内容
-                        targetElement.innerText = 'by Khoo lb';
-                    }
-                }, 1000); // 1秒
-            });
-        }
-
-        // 等待页面加载完成后执行
-        window.addEventListener('load', modifyText);
-    </script>
 </head>
 <body>
 
