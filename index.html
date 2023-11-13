@@ -7,18 +7,17 @@
     <title>Your Gamma App</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 在页面加载完成后隐藏链接
-            var link = document.querySelector('.chakra-link.hide-link');
+            // 在页面加载完成后移除链接
+            var link = document.querySelector('.chakra-link.chakra-button.css-16kb49p');
             if (link) {
-                link.style.display = 'none';
+                link.parentNode.removeChild(link);
             }
         });
     </script>
 </head>
 
 <body>
-    <!-- 将链接的 class 设置为 hide-link -->
-    <a target="_blank" class="chakra-link chakra-button css-16kb49p hide-link" href="https://gamma.app">
+    <a target="_blank" class="chakra-link chakra-button css-16kb49p" href="https://gamma.app">
         <span class="chakra-button__icon css-1wh2kri">
             <img src="/_next/static/media/GammaLogoGradient.43edb67f.svg" class="chakra-image css-1uo6o3" aria-hidden="true" focusable="false">
         </span>
