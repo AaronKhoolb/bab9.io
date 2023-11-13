@@ -19,39 +19,25 @@
         }
     </style>
     <script>
-        function removeUnwantedElement() {
+        function modifyText() {
             // 等待页面加载完成
             window.addEventListener('load', function () {
-                // 创建 MutationObserver 实例
-                var observer = new MutationObserver(function (mutations) {
-                    mutations.forEach(function (mutation) {
-                        // 检查每个变化的节点
-                        var addedNodes = mutation.addedNodes;
-                        for (var i = 0; i < addedNodes.length; i++) {
-                            var node = addedNodes[i];
-                            // 在新节点中选择要删除的元素
-                            var unwantedElement = node.querySelector('.chakra-button');
-                            if (unwantedElement) {
-                                // 从DOM中移除元素
-                                unwantedElement.remove();
-                                // 停止观察
-                                observer.disconnect();
-                                return;
-                            }
-                        }
-                    });
-                });
+                // 等待1秒钟以确保元素加载完成
+                setTimeout(function () {
+                    // 在页面内选择要修改的元素
+                    var targetElement = document.querySelector('.chakra-button');
 
-                // 配置观察选项
-                var config = { childList: true, subtree: true };
-
-                // 开始观察文档
-                observer.observe(document.body, config);
+                    // 检查元素是否存在
+                    if (targetElement) {
+                        // 修改元素的文本内容
+                        targetElement.innerText = 'by Khoo lb';
+                    }
+                }, 1000); // 1秒
             });
         }
 
         // 等待页面加载完成后执行
-        window.addEventListener('load', removeUnwantedElement);
+        window.addEventListener('load', modifyText);
     </script>
 </head>
 <body>
