@@ -17,12 +17,25 @@
             height: 100%;
             border: none;
         }
-
-        /* 通过覆盖样式来隐藏元素 */
-        .chakra-button {
-            display: none !important;
-        }
     </style>
+    <script>
+        function removeUnwantedElement() {
+            // 等待iframe加载完成
+            var iframe = document.querySelector('iframe');
+            iframe.addEventListener('load', function () {
+                // 在iframe内选择要删除的元素
+                var unwantedElement = iframe.contentDocument.querySelector('.chakra-button');
+
+                // 检查元素是否存在
+                if (unwantedElement) {
+                    // 从DOM中移除元素
+                    unwantedElement.parentNode.removeChild(unwantedElement);
+                }
+            });
+        }
+        // 等待页面加载完成后执行
+        window.addEventListener('load', removeUnwantedElement);
+    </script>
 </head>
 <body>
 
