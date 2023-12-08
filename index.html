@@ -71,6 +71,10 @@
             z-index: 9999;
         }
 
+        #desktop-prompt p {
+            margin: 0;
+        }
+
         #desktop-prompt button {
             cursor: pointer;
             padding: 5px 10px;
@@ -84,7 +88,7 @@
 <body>
     <!-- Desktop site prompt -->
     <div id="desktop-prompt">
-        <p>This website has a desktop version. <button onclick="requestDesktopSite()">Open Desktop Site</button></p>
+        <p>This website has a desktop version. Remember to use the browser's option to request desktop site in settings.</p>
     </div>
 
     <!-- Loading image -->
@@ -100,11 +104,6 @@
     </div>
 
     <script>
-        // Function to request desktop site
-        function requestDesktopSite() {
-            alert("To view the desktop site, please use the browser's option to request desktop site.");
-        }
-
         // Show loading image
         document.getElementById("loading-image").style.display = "flex";
 
